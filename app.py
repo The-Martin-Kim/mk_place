@@ -72,7 +72,7 @@ with st.form("place_input", clear_on_submit=True):
     name = st.text_input("장소명을 입력해주세요.", key="name")
     link = st.text_input("장소에 해당하는 지도의 링크를 붙여넣어주세요.", key="link")
     selected_tags = st.multiselect("태그를 지정해주세요.", all_tags, key="categories")
-    new_tag = st.text_input("새 태그를 추가하고 싶다면 여기에 입력해주세요.")
+    new_tag = st.text_input("새 태그 추가 (쉼표로 구분)")
     submit_button = st.form_submit_button("추가하기")
 
 # 장소 추가 버튼 클릭 시 데이터 추가
@@ -110,7 +110,7 @@ if not st.session_state.data.empty:
             new_name = st.text_input("장소명", value=edit_info['장소명'], key=f"new_name_{i}")
             new_link = st.text_input("링크", value=edit_info['링크'], key=f"new_link_{i}")
             new_tags = st.multiselect("태그 선택", all_tags, default=edit_info['태그'], key=f"new_tags_{i}")
-            new_tag = st.text_input("새 태그를 추가하고 싶다면 여기에 입력해주세요.", key=f"new_tag_{i}")
+            new_tag = st.text_input("새 태그 추가 (쉼표로 구분)", key=f"new_tag_{i}")
             if new_tag:
                 new_tags.append(new_tag.strip())
                 all_tags.append(new_tag.strip())
